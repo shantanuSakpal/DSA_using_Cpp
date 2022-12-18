@@ -8,45 +8,33 @@ class Solution
 {
 public:
     // Function to find the maximum occurring character in a string.
-    char sortm(map<char, int> &M)
-    {
-
-        // Declare a multimap
-        multimap<int, char> MM;
-
-        // Insert every (key-value) pairs from
-        // map M to multimap MM as (value-key)
-        // pairs
-        for (auto &it : M)
-        {
-            MM.insert({it.second, it.first});
-        }
-
-        // Print the multimap
-        for (auto &it : MM)
-        {
-            cout << it.first << ' '
-                 << it.second << endl;
-        }
-        map<int, char>::iterator it = MM.begin();
-        it = MM.rbegin();
-        int freq = it->first;
-        cout << freq;
-        while (it->first == freq)
-        {
-            it--;
-        }
-        it++;
-        return it->second;
-    }
     char getMaxOccuringChar(string str)
     {
-        map<char, int> m;
+        int arr[27] = {0};
         for (int i = 0; i < str.length(); i++)
         {
-            m[str[i]]++;
+            arr[str[i] - 97]++;
         }
-        return sortm(m);
+        int maxfreq = 0;
+        string ans = "";
+        for (int i = 0; i < 27; i++)
+        {
+
+            if (arr[i] > maxfreq)
+            {
+                maxfreq = arr[i];
+            }
+        }
+        for (int i = 0; i < 27; i++)
+        {
+            if (arr[i] == maxfreq)
+            {
+                char temp = (char)(97 + i);
+                ans.push_back(temp);
+            }
+        }
+        sort(ans.begin(), ans.end());
+        return ans[0];
     }
 };
 
