@@ -92,7 +92,7 @@ void arrayIntersection(int *arrA, int *arrB, int n1, int n2)
 int main()
 {
 
-    // int arr[] = {1, 2, 3, 4, 5, 6};
+    int arr[10] = {1, 2, 3, 4, 5, 6};
     // int arrA[] = {3, 2, 6, 8, 5, 8, 5, 4};
     // int arrB[] = {4, 9, 0, 3, 6, 9};
     // int n1 = sizeof(arrA) / sizeof(int);
@@ -103,7 +103,12 @@ int main()
     // // int ans = findDuplicate(arr, n);
     // // (ans < 0 ? cout << "not found" : cout << ans);
     // arrayIntersection(arrA, arrB, n1, n2);
-    cout << sqrt(2);
+    // cout << *(arr + 1);
+    // int *ptr = &arr[0];
+    // cout << sizeof(ptr) << endl;
+    char temp = 'a';
+    char *pr = &temp;
+    cout << pr;
 
     // print(n1, &ansArr);
     return 0;
